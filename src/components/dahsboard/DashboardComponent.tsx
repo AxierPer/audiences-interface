@@ -11,7 +11,7 @@ export default function DashboardComponent() {
 
   const filterPost = items.filter((zips) =>
     zips.zipcode.toLowerCase().includes(query.toLowerCase()) ||
-    zips.state_name.toLowerCase().includes(query.toLowerCase()))
+    zips.state_name?.toLowerCase().includes(query.toLowerCase()))
 
   // Cargar los items desde la API
   const fetchItems = (page: number) => {
@@ -69,7 +69,11 @@ export default function DashboardComponent() {
                 {filterPost.map((item, index) => (
                   <tr key={`${item.zipcode} - ${index}`} className={`${index % 2 === 0 ? "bg-zinc-500" : "bg-zinc-300"} border-b border-gray-200`}>
                     <td className="px-4 py-2">{item.zipcode}</td>
-                    <td className="px-4 py-2">{((item.hispanos_in_us / item.population) * 100).toFixed(2)}%</td>
+                    <td className="px-4 py-2">
+                      {item.hispanos_in_us && item.population
+                        ? ((item.hispanos_in_us / item.population) * 100).toFixed(2)
+                        : 0}
+                      %</td>
                     <td className="px-4 py-2">{item.population}</td>
                     <td className="px-4 py-2">{item.state_name}</td>
                     <td className="px-4 py-2">{item.state_id}</td>
