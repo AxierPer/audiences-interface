@@ -82,35 +82,37 @@ export default function DashboardComponent() {
           </div>
         </div>
         <div className="bg-zinc-500 p-2 rounded-lg">
-          <div className="overflow-y-auto max-h-[750px] table-container m-auto">
+          <div className="overflow-y-auto xl:max-h-[750px] sm:max-h-[650px] lg:max-h-[670px] table-container m-auto">
             <table className="min-w-full h-full table-auto">
               <thead className="bg-zinc-700 text-gray-300 sticky top-0">
                 <tr>
-                  <th className="px-4 py-2 text-left">ZipCode</th>
-                  <th className="px-4 py-2 text-left">Hispanos</th>
-                  <th className="px-4 py-2 text-left">Population</th>
-                  <th className="px-4 py-2 text-left">State</th>
-                  <th className="px-4 py-2 text-left">State Id</th>
-                  <th className="px-4 py-2 text-left">Latitude</th>
-                  <th className="px-4 py-2 text-left">Longitude</th>
-                  <th className="px-4 py-2 text-left">City</th>
+                  <th
+                    className="xl:px-4 xl:py-2 sm:px-2 sm:py-1 sm:text-sm lg:px-3 lg:py-2 lg:text-base text-left"
+                  >ZipCode</th>
+                  <th className="xl:px-4 xl:py-2 sm:px-2 sm:py-1 sm:text-sm lg:px-3 lg:py-2 lg:text-base text-left">Hispanos</th>
+                  <th className="xl:px-4 xl:py-2 sm:px-2 sm:py-1 sm:text-sm lg:px-3 lg:py-2 lg:text-base text-left">Population</th>
+                  <th className="xl:px-4 xl:py-2 sm:px-2 sm:py-1 sm:text-sm lg:px-3 lg:py-2 lg:text-base text-left">State</th>
+                  <th className="xl:px-4 xl:py-2 sm:px-2 sm:py-1 sm:text-sm lg:px-3 lg:py-2 lg:text-base text-left">State Id</th>
+                  <th className="xl:px-4 xl:py-2 sm:px-2 sm:py-1 sm:text-sm lg:px-3 lg:py-2 lg:text-base text-left">Latitude</th>
+                  <th className="xl:px-4 xl:py-2 sm:px-2 sm:py-1 sm:text-sm lg:px-3 lg:py-2 lg:text-base text-left">Longitude</th>
+                  <th className="xl:px-4 xl:py-2 sm:px-2 sm:py-1 sm:text-sm lg:px-3 lg:py-2 lg:text-base text-left">City</th>
                 </tr>
               </thead>
               <tbody>
                 {filterPrincipal.map((item, index) => (
                   <tr key={`${item.zipcode} - ${index}`} className={`${index % 2 === 0 ? "bg-zinc-500" : "bg-zinc-300"} border-b border-gray-200`}>
-                    <td className="px-4 py-2">{item.zipcode}</td>
-                    <td className="px-4 py-2">
+                    <td className="xl:px-4 xl:py-2 sm:px-2 sm:py-1 sm:text-sm lg:px-3 lg:py-2 lg:text-base py-2">{item.zipcode}</td>
+                    <td className="xl:px-4 xl:py-2 sm:px-2 sm:py-1 sm:text-sm lg:px-3 lg:py-2 lg:text-base py-2">
                       {item.hispanos_in_us && item.population
                         ? ((item.hispanos_in_us / item.population) * 100).toFixed(2)
                         : "0.00"}
                       %</td>
-                    <td className="px-4 py-2">{new Intl.NumberFormat('de-DE').format(item.population ? item.population : 0)}</td>
-                    <td className="px-4 py-2">{item.state_name}</td>
-                    <td className="px-4 py-2">{item.state_id}</td>
-                    <td className="px-4 py-2">{item.latitude}</td>
-                    <td className="px-4 py-2">{item.longitude}</td>
-                    <td className="px-4 py-2">{item.city}</td>
+                    <td className="xl:px-4 xl:py-2 sm:px-2 sm:py-1 sm:text-sm lg:px-3 lg:py-2 lg:text-base py-2">{new Intl.NumberFormat('de-DE').format(item.population ? item.population : 0)}</td>
+                    <td className="xl:px-4 xl:py-2 sm:px-2 sm:py-1 sm:text-sm lg:px-3 lg:py-2 lg:text-base py-2">{item.state_name}</td>
+                    <td className="xl:px-4 xl:py-2 sm:px-2 sm:py-1 sm:text-sm lg:px-3 lg:py-2 lg:text-base py-2">{item.state_id}</td>
+                    <td className="xl:px-4 xl:py-2 sm:px-2 sm:py-1 sm:text-sm lg:px-3 lg:py-2 lg:text-base py-2">{item.latitude}</td>
+                    <td className="xl:px-4 xl:py-2 sm:px-2 sm:py-1 sm:text-sm lg:px-3 lg:py-2 lg:text-base py-2">{item.longitude}</td>
+                    <td className="xl:px-4 xl:py-2 sm:px-2 sm:py-1 sm:text-sm lg:px-3 lg:py-2 lg:text-base py-2">{item.city}</td>
                   </tr>
                 ))}
               </tbody>
