@@ -18,8 +18,8 @@ export default function DashboardComponent() {
     const populationValue = zips.population || 0
     return (
       zips.zipcode.toLowerCase().includes(query.toLowerCase()) ||
-      zips.state_name?.toLowerCase().includes(query.toLowerCase()) ||
-      zips.state_id?.toLowerCase().includes(query.toLowerCase()) &&
+      zips.state_id?.toLowerCase().includes(query.toLowerCase()) ||
+      zips.state_name?.toLowerCase().includes(query.toLowerCase()) &&
       (hispanos ? hispanosPercentage <= parseFloat(hispanos) : true) &&
       (population ? populationValue <= parseInt(population, 10) : true)
     )
