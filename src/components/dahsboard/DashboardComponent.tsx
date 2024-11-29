@@ -82,7 +82,7 @@ export default function DashboardComponent() {
           </div>
         </div>
         <div className="bg-zinc-500 p-2 rounded-lg">
-          <div className="overflow-y-auto max-h-[750px] xl:max-h-[680px] sm:max-h-[650px] lg:max-h-[670px] table-container m-auto">
+          <div className="overflow-y-auto max-h-[750px] xl:max-h-[675px] sm:max-h-[650px] lg:max-h-[670px] table-container m-auto">
             <table className="min-w-full h-full table-auto">
               <thead className="bg-zinc-700 text-gray-300 sticky top-0">
                 <tr>
